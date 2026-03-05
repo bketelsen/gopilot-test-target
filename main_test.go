@@ -17,3 +17,4 @@ func TestFarewell(t *testing.T) {
 		t.Errorf("Farewell(\"Alice\") = %q, want %q", got, want)
 	}
 }
+

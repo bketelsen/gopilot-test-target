@@ -13,3 +13,4 @@ func Greet(name string) string {
 func Farewell(name string) string {
 	return "Goodbye, " + name + "!"
 }
+
