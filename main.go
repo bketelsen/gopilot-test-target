@@ -1,9 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+)
 
 func main() {
 	fmt.Println(Greet("World"))
+	http.HandleFunc("/greet", GreetHandler)
+	http.ListenAndServe(":8080", nil)
 }
 
 func Greet(name string) string {
@@ -12,4 +17,12 @@ func Greet(name string) string {
 
 func Farewell(name string) string {
 	return "Goodbye, " + name + "!"
+}
+
+func GreetHandler(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		name = "World"
+	}
+	fmt.Fprint(w, Greet(name))
 }
