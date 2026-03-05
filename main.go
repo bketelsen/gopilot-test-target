@@ -9,3 +9,7 @@ func main() {
 func Greet(name string) string {
 	return "Hello, " + name + "!"
 }
+
+func Farewell(name string) string {
+	return "Goodbye, " + name + "!"
+}
