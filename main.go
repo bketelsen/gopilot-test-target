@@ -1,9 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"net/http"
+	"time"
+)
 
 func main() {
+	startTime = time.Now()
 	fmt.Println(Greet("World"))
+
+	http.HandleFunc("/health", healthHandler())
+	http.ListenAndServe(":8080", nil)
 }
 
 func Greet(name string) string {
