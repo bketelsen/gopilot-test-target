@@ -17,3 +17,22 @@ func TestFarewell(t *testing.T) {
 		t.Errorf("Farewell(\"Alice\") = %q, want %q", got, want)
 	}
 }
+
+func TestReverse(t *testing.T) {
+	tests := []struct {
+		input string
+		want  string
+	}{
+		{"hello", "olleh"},
+		{"", ""},
+		{"a", "a"},
+		{"abcdef", "fedcba"},
+		{"Hello, 世界", "界世 ,olleH"},
+	}
+	for _, tt := range tests {
+		got := Reverse(tt.input)
+		if got != tt.want {
+			t.Errorf("Reverse(%q) = %q, want %q", tt.input, got, tt.want)
+		}
+	}
+}
